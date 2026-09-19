@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitLife</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body
+{font-family:Arial,sans-serif;background:#f4f7f5;color:#1f2937;transition:.3s}
+body.dark{background:#111827;color:#f9fafb}
+header{background:#2841fa;color:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:25px;font-weight:bold}
+button{border:0;cursor:pointer}
+.theme{background:white;color:#2841fa;padding:9px 14px;border-radius:6px}
+.hero{padding:70px 7%;background:white;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.dark .hero,.dark .workouts,.dark .box{background:#1f2937}
+.hero-text{max-width:520px}
+.hero h1{font-size:46px;margin-bottom:15px}
+.hero p{line-height:1.6;color:#666;margin-bottom:25px}
+.dark .hero p,.dark .box p{color:#d1d5db}
+.btn{background:#2841fa;color:white;padding:13px 20px;border-radius:6px}
+.hero img{width:42%;border-radius:15px}
+.workouts{padding:55px 7%}
+.workouts h2{text-align:center;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.box{background:white;padding:25px;border-radius:12px;text-align:center;box-shadow:0 4px 15px #00000012}
+.box h3{margin-bottom:12px}
+.box p{color:#666;line-height:1.5;margin-bottom:18px}
+.start{background:#2841fa;color:white;padding:10px 18px;border-radius:6px}
+#message{text-align:center;margin-top:30px;font-size:20px;font-weight:bold}
+footer{text-align:center;background:#111827;color:white;padding:22px}
+@media(max-width:800px){
+.hero{flex-direction:column;text-align:center;padding:50px 5%}
+.hero img{width:100%}
+.grid{grid-template-columns:1fr}
+.workouts{padding:45px 5%}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">FitLife</div>
+<button class="theme" onclick="toggleTheme()">Dark Mode</button>
+</header>
+
+<section class="hero">
+<div class="hero-text">
+<h1>Build a Healthier Life</h1>
+<p>Choose a workout, start your session and use the interactive controls to explore your fitness routine.</p>
+<button class="btn" onclick="showWelcome()">Get Started</button>
+</div>
+<img src="pictures/fitness.jpg" alt="Fitness">
+</section>
+
+<section class="workouts">
+<h2>Choose Your Workout</h2>
+<div class="grid">
+<div class="box">
+<h3>Morning Cardio</h3>
+<p>Improve your energy with a simple cardio session.</p>
+<button class="start" onclick="startWorkout('Morning Cardio')">Start</button>
+</div>
+<div class="box">
+<h3>Strength Training</h3>
+<p>Build strength with a balanced beginner workout.</p>
+<button class="start" onclick="startWorkout('Strength Training')">Start</button>
+</div>
+<div class="box">
+<h3>Evening Yoga</h3>
+<p>Relax your body and finish the day with stretching.</p>
+<button class="start" onclick="startWorkout('Evening Yoga')">Start</button>
+</div>
+</div>
+<div id="message">Select a workout to begin.</div>
+</section>
+
+<footer>© 2026 FitLife. All rights reserved.</footer>
+
+<script>
+function toggleTheme(){
+document.body.classList.toggle("dark");
+}
+function startWorkout(name){
+document.getElementById("message").textContent=name+" started! Keep going.";
+}
+function showWelcome(){
+document.getElementById("message").textContent="Welcome to FitLife! Choose any workout below.";
+document.querySelector(".workouts").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
